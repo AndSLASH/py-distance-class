@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 class Distance:
     def __init__(self, km) -> None:
         self.km = km
@@ -8,19 +11,19 @@ class Distance:
     def __repr__(self) -> str:
         return f"Distance(km={self.km})"
 
-    def __add__(self, other: "Distance") -> "Distance":
+    def __add__(self, other: Distance) -> Distance:
         value = other.km if isinstance(other, Distance) else other
         return Distance(self.km + value)
 
-    def __iadd__(self, other: "Distance") -> "Distance":
+    def __iadd__(self, other: Distance) -> Distance:
         value = other.km if isinstance(other, Distance) else other
         self.km += value
         return self
 
-    def __mul__(self, other: "Distance") -> "Distance":
+    def __mul__(self, other: Distance) -> Distance:
         return Distance(self.km * other)
 
-    def __truediv__(self, other: "Distance") -> "Distance":
+    def __truediv__(self, other: Distance) -> Distance:
         result = self.km / other
         return Distance(round(result, 2))
 
@@ -28,18 +31,18 @@ class Distance:
         value = other.km if isinstance(other, Distance) else other
         return self.km < value
 
-    def __gt__(self, other: "Distance") -> bool:
+    def __gt__(self, other: Distance) -> bool:
         value = other.km if isinstance(other, Distance) else other
         return self.km > value
 
-    def __eq__(self, other: "Distance") -> bool:
+    def __eq__(self, other: Distance) -> bool:
         value = other.km if isinstance(other, Distance) else other
         return self.km == value
 
-    def __le__(self, other: "Distance") -> bool:
+    def __le__(self, other: Distance) -> bool:
         value = other.km if isinstance(other, Distance) else other
         return self.km <= value
 
-    def __ge__(self, other: "Distance") -> bool:
+    def __ge__(self, other: Distance) -> bool:
         value = other.km if isinstance(other, Distance) else other
         return self.km >= value
